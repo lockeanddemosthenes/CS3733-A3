@@ -3,10 +3,10 @@ package edu.wpi.teamname;
 import java.util.List;
 
 public class College {
-    String name;
-    List<Department> depts;
+    private String name;
+    private List<Dept> depts;
 
-    public College(String name, List<Department> depts) {
+    public College(String name, List<Dept> depts) {
         this.name = name;
         this.depts = depts;
     }
@@ -15,7 +15,7 @@ public class College {
         return name;
     }
 
-    public List<Department> getDepts() {
+    public List<Dept> getDepts() {
         return depts;
     }
 
@@ -23,13 +23,13 @@ public class College {
         this.name = name;
     }
 
-    public void setDepts(List<Department> depts) {
+    public void setDepts(List<Dept> depts) {
         this.depts = depts;
     }
 
     public int countCourses() {
         int accumulator = 0;
-        for (Department d : depts) {
+        for (Dept d : depts) {
             accumulator += d.countCourses();
         }
         return accumulator;
@@ -37,8 +37,8 @@ public class College {
 
     public int countStudentsInCourses() {
         int accumulator = 0;
-        for (Department d : depts) {
-            accumulator += d.countStudentsInDepartmentCourses();
+        for (Dept d : depts) {
+            accumulator += d.countStudentsInDeptCourses();
         }
         return accumulator;
     }
